@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050d20">
+  <title>DG GIFT — Tu historia, en película</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">♡</span><span><b>DG GIFT</b><small>HISTORIAS QUE MERECEN SER CONTADAS</small></span></a>
+  <span class="top-note">CREÁ TU PROPIA HISTORIA</span>
+</header>
+
+<main class="shell">
+  <section class="welcome">
+    <p class="eyebrow">UNA EXPERIENCIA PARA RECORDAR</p>
+    <h1>Tu historia merece<br><em>su propia película.</em></h1>
+    <p>Elegí una portada, cargá tus recuerdos y convertílos en una serie única para esa persona especial.</p>
+  </section>
+
+  <div class="workspace">
+    <section class="editor">
+      <div class="progress-head"><span id="stepLabel">PASO 1 DE 8</span><span id="stepPercent">13%</span></div>
+      <div class="progress"><span id="progressBar"></span></div>
+
+      <form id="creatorForm">
+        <section class="step-panel active" data-step="0">
+          <p class="eyebrow">01 · FORMATO</p><h2>¿Qué historia vamos a contar?</h2>
+          <p class="muted">Elegí cómo querés presentar este regalo.</p>
+          <div class="choice-grid">
+            <label class="choice selected"><input type="radio" name="format" value="SERIE ORIGINAL" checked><span class="choice-symbol">▣</span><b>Una serie</b><small>Varios capítulos y recuerdos</small></label>
+            <label class="choice"><input type="radio" name="format" value="PELÍCULA ORIGINAL"><span class="choice-symbol">▶</span><b>Una película</b><small>Una historia especial</small></label>
+          </div>
+        </section>
+
+        <section class="step-panel" data-step="1">
+          <p class="eyebrow">02 · TÍTULO</p><h2>El nombre de la historia</h2>
+          <label>Título principal<input id="title" maxlength="65" value="Nuestra historia de amor" placeholder="Ej. Nuestra historia"></label>
+          <label>Frase o descripción<textarea id="description" rows="3" maxlength="240" placeholder="Una historia llena de momentos que quiero guardar para siempre...">Una historia llena de momentos, sonrisas y recuerdos que siempre voy a elegir.</textarea></label>
+          <label>Nombre de la persona especial<input id="recipient" maxlength="45" placeholder="Ej. Para Sofía"></label>
+        </section>
+
+        <section class="step-panel" data-step="2">
+          <p class="eyebrow">03 · DETALLES</p><h2>La ficha de tu película</h2>
+          <label>Nombre de quien regala<input id="sender" maxlength="45" placeholder="Tu nombre (opcional)"></label>
+          <label>Año especial<input id="year" maxlength="12" value="2026" placeholder="2026"></label>
+          <label>Género<select id="genre"><option>Romance</option><option>Amor, aventura y recuerdos</option><option>Amistad</option><option>Familia</option><option>Una historia inolvidable</option></select></label>
+          <label>Texto destacado<input id="match" maxlength="30" value="99% de coincidencia"></label>
+        </section>
+
+        <section class="step-panel" data-step="3">
+          <p class="eyebrow">04 · PORTADA</p><h2>Elegí la imagen principal</h2>
+          <p class="muted">Será la imagen grande que aparece al abrir la película.</p>
+          <label class="upload"><span class="upload-icon">＋</span><b>Subir foto de portada</b><small>JPG, PNG o WEBP</small><input id="cover" type="file" accept="image/*"></label>
+          <p class="file-status" id="coverStatus">Todavía no elegiste una portada.</p>
+        </section>
+
+        <section class="step-panel" data-step="4">
+          <p class="eyebrow">05 · CAPÍTULOS</p><h2>Agregá los recuerdos</h2>
+          <p class="muted">Cada foto será un capítulo. Podés ponerle un título propio.</p>
+          <label class="upload"><span class="upload-icon">＋</span><b>Subir fotos de los capítulos</b><small>Hasta 20 imágenes</small><input id="photos" type="file" accept="image/*" multiple></label>
+          <p class="file-status" id="photoStatus">Todavía no agregaste fotos.</p>
+          <div id="chapterFields" class="chapter-fields"></div>
+        </section>
+
+        <section class="step-panel" data-step="5">
+          <p class="eyebrow">06 · BANDA SONORA</p><h2>La canción de ustedes</h2>
+          <p class="muted">Subí un MP3 para que acompañe la experiencia.</p>
+          <label class="upload"><span class="upload-icon">♫</span><b>Elegir música MP3</b><small>MP3 o audio compatible</small><input id="music" type="file" accept="audio/*"></label>
+          <p class="file-status" id="musicStatus">No agregaste música. Este paso es opcional.</p>
+          <label>Nombre de la canción<input id="songTitle" maxlength="70" value="Nuestra canción"></label>
+        </section>
+
+        <section class="step-panel" data-step="6">
+          <p class="eyebrow">07 · ESCENA FINAL</p><h2>El video de su historia</h2>
+          <p class="muted">Un pequeño video para cerrar la película con un recuerdo inolvidable.</p>
+          <label class="upload"><span class="upload-icon">▶</span><b>Elegir video de tu galería</b><small>MP4 recomendado · ideal hasta 25 MB</small><input id="video" type="file" accept="video/mp4,video/*"></label>
+          <p class="file-status" id="videoStatus">Todavía no agregaste un video.</p>
+          <label>Título de la escena final<input id="videoTitle" maxlength="90" value="Y nuestra historia continúa…"></label>
+        </section>
+
+        <section class="step-panel" data-step="7">
+          <p class="eyebrow">08 · ESTRENO</p><h2>Tu película está casi lista</h2>
+          <p class="muted">Revisá la vista previa y generá el regalo para compartir.</p>
+          <div class="finish-card"><span class="finish-icon">♥</span><b>Una historia hecha para emocionar</b><small>El regalo se descargará como un archivo HTML independiente con tus fotos, música y video incorporados.</small></div>
+          <button type="button" class="primary full" id="createGift">♥ Crear y descargar mi película</button>
+          <p id="createStatus" class="file-status" aria-live="polite">Cuando esté descargada, podés publicarla en Cloudflare Pages.</p>
+          <div class="qr-box">
+            <h3>Generar código QR</h3><p>Después de publicar tu regalo, pegá acá el enlace público.</p>
+            <input id="publicUrl" type="url" placeholder="https://tu-regalo.pages.dev">
+            <button type="button" class="secondary full" id="makeQr">Generar QR</button>
+            <div id="qr" class="qr-output"></div>
+            <button type="button" class="secondary full" id="downloadQr" disabled>Descargar QR</button>
+          </div>
+        </section>
+      </form>
+
+      <div class="nav-buttons">
+        <button type="button" class="secondary" id="back" disabled>← Atrás</button>
+        <button type="button" class="primary" id="next">Continuar →</button>
+      </div>
+    </section>
+
+    <aside class="preview-column">
+      <div class="preview-label"><span>VISTA PREVIA EN VIVO</span><i></i></div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="stream-top"><b class="n-mark">DG</b><span>⌕　♧</span></div>
+        <div class="hero-poster" id="heroPoster">
+          <div class="poster-shade"></div><div class="poster-copy">
+            <span class="original" id="pFormat">SERIE ORIGINAL</span>
+            <h2 id="pTitle">Nuestra historia de amor</h2>
+            <p class="match" id="pMatch">99% de coincidencia</p>
+            <p class="meta" id="pMeta">2026 · 1 Temporada · HD · 8 Episodios</p>
+            <div class="preview-actions"><span>▶ Reproducir</span><span>＋ Mi lista</span></div>
+          </div>
+        </div>
+        <div class="stream-description"><span class="hot">♥　UNA HISTORIA ESPECIAL</span><p id="pDescription">Una historia llena de momentos, sonrisas y recuerdos que siempre voy a elegir.</p><div class="cast"><b>Para:</b> <span id="pRecipient">Esa persona especial</span><br><b>Género:</b> <span id="pGenre">Romance</span></div></div>
+        <div class="episode-area"><div class="episode-head"><b>Capítulos y recuerdos</b><small id="pEpisodeCount">0 episodios</small></div><div id="pChapters" class="episode-list"><div class="empty-episodes">Tus fotos aparecerán acá como capítulos.</div></div></div>
+        <div class="preview-finale"><span>EL GRAN FINAL</span><b id="pVideoTitle">Y nuestra historia continúa…</b><div class="video-placeholder">▶</div></div>
+        <div class="phone-footer">DG GIFT · UNA HISTORIA ÚNICA</div>
+      </div>
+      <p class="preview-help">La vista previa se actualiza mientras completás los pasos.</p>
+    </aside>
+  </div>
+</main>
+<footer>DG GIFT · Cada historia merece su propia pantalla.</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="app.js"></script>
+</body></html>
